@@ -1,7 +1,7 @@
 #include "avl.h"
 #include "avl.h"
 
-void menu_avl(){
+int main(){
 
 	system("cls || clear");
 	
@@ -54,4 +54,6 @@ void menu_avl(){
 	            break;
 	    }
 	}while(num);
+
+    return 0;
 }

@@ -1,12 +1,13 @@
 #include "avl.h"
-#include "avl.h"
+#include "rbt.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-#include "rbt.h"
 
 #define MAX 10
 
+//void menu_arvore_binaria();
 void menu_avl();
 void menu_rubro_negro();
 
@@ -73,7 +74,6 @@ void menu_avl(){
 	    switch(num){
 	        case 0:
 	            printf("\nSaindo...\n");
-	            return 0;
 	            break;
 	        case 1:
 	            printf("\nDigite um valor: ");
