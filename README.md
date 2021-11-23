@@ -23,5 +23,3 @@ Para tanto, pode-se considerar as implementações já realizadas, adaptando as 
                     3.2) - Há diferença de tempo das inserções, o que afeta cada estrutura em termos de mecanismo de manipulação / balanceamento?
 
                     3.3) - Considerando as três bases de entrada, para quais você indica cada uma das estruturas e porquê?
-
-<h2>continuação</h2>
