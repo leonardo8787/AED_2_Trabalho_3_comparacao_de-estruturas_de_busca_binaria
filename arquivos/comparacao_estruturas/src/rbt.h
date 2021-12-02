@@ -39,3 +39,5 @@ TNoRB *irmao(TNoRB *pai, TNoRB *noAtual);
 int filhoEsquerdo(TNoRB *arvore);
 
 TNoRB **maiorEsq(TNoRB **pMaiorEsq);
+
+//void menu_rubro_negro();
