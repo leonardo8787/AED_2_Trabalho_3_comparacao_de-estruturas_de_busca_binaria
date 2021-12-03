@@ -26,8 +26,8 @@ Para tanto, pode-se considerar as implementações já realizadas, adaptando as 
 
 <h1>Como usar o software</h1>
 
-1) copie o código da página do github: 
-2) abra uma pasta em seu sistema operacional e digite o seguinte comando: git clone 
+1) copie o código da página do github: https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria.git
+2) abra uma pasta em seu sistema operacional e digite o seguinte comando: git clone https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria.git
 3) passos à baixo:
 
 Para acessar o software e rodar o software:
