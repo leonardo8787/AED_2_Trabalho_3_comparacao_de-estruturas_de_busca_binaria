@@ -1,31 +1,32 @@
-//binaria.h
-/*
+#ifndef TREE_H 
+#define TREE_H
+
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef struct Record_binaria Record_binaria;
-typedef struct Tree_binaria Tree_binaria;
+typedef struct Record Record;
+typedef struct Tree Tree;
 
-struct Record_binaria{
+struct Record{
 	int key;
 	int value;
 };
 
-struct Tree_binaria{
-	Record_binaria reg;
-	Tree_binaria *esq, *dir;
+struct Tree{
+	Record reg;
+	Tree *esq, *dir;
 };
 
-Tree_binaria* binaria_CreateTree(){
-	return NULL;
-}
+Tree* CreateTree();
+void insertTree(Tree **t, Record r);
+void pesquisa(Tree **t, Tree **aux, Record r);
+int isInTree(Tree *t, Record r);
 
-void binaria_insertTree(Tree_binaria **t, Record_binaria r);
-int binaria_isInTree(Tree_binaria *t, Record_binaria r);
-void binaria_showTreeInOrder(Tree_binaria *t);
-void binaria_antecessor(Tree_binaria **t, Tree_binaria *aux);
-void binaria_removeTree(Tree_binaria **t, Record_binaria r);
-void binaria_pesquisa(Tree_binaria **t, Tree_binaria **aux, Record_binaria r);
-//void menu_binaria();
+void removeTree(Tree **t, Record r);
+void antecessor(Tree **t, Tree *aux);
 
-*/
+void preordem(Tree *t);
+void central(Tree *t);
+void posordem(Tree *t);
+
+#endif

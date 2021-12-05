@@ -1,20 +1,26 @@
 #include "avl.h"
 #include "rbt.h"
-//#include "binaria.h"
+#include "binaria.h"
+#include "gera_aleatorio.h"
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 
 #define MAX 10
+#define MIL 1000
+#define DEZ_MIL 10000
+#define CEM_MIL 100000
 
 void menu_avl();
 void menu_rubro_negro();
-//void menu_binaria();
+void menu_binaria();
 
 int main(){
 
 	int op;
+
+	system("clear || cls");
 
 	do{
 		printf("\n------MENU------\n\n");
@@ -31,7 +37,7 @@ int main(){
 				break;
 			case 1:
 				printf("Árvore Binária");
-				//menu_binaria();
+				menu_binaria();
 				break;
 			case 2:
 				printf("Árvore AVL");
@@ -162,56 +168,127 @@ void menu_rubro_negro() {
         printf("==========\n");
     } while (flag);
 }
-/*
-void menu_binaria(){
-	
-	Tree_binaria *raiz = binaria_CreateTree();
-	Tree_binaria *aux = binaria_CreateTree();
-	Record_binaria r;
-	int num;
 
-	printf("\nÁrvore binária em C\n\n");
-	printf("autor: Leonardo Campos\n");
-	
-	do{
-	    printf("Escolha uma opção: \n");
-	    printf("0 - sair\n");
-	    printf("1 - inserir valor\n");
-	    printf("2 - remover\n");
-	    printf("3 - imprimir árvore\n");
-	    printf("4 - limpar tela\n");
-	    scanf("%d", &num);
-	    switch(num){
-	        case 0:
-	            printf("\nSaindo...\n");
-	            break;
-	        case 1:
-	            printf("\nDigite um valor: \n");
-	            scanf("%d", &num);
-	            r.key = num;
-	            r.value = 1;
-	            binaria_insertTree(&raiz, r);
-	            break;
-	        case 2:
-	            printf("\nDigite um número para remover: \n");
-	            scanf("%d", &num);
-	            r.key = num;
-	            binaria_removeTree(&raiz, r);
-	            break;
-	        case 3:
-	            printf("\nÁrvore\n");
-	            printf("[");
-	            binaria_showTreeInOrder(raiz);
-	            printf("]");
-	            binaria_showTreeInOrder(aux);
-	            printf("\n");
-	            break;
-	        case 4:
-	           	system("cls || clear");
-	        default:
-	            printf("\nEscolha uma opção válida!\n");
-	            break;
-	    }
-	}while(num != 0);
+void menu_binaria(){
+
+	system("clear || cls");
+
+	int reg[MIL] = {};
+	Tree *raiz = CreateTree();
+	Tree *aux = CreateTree();
+	Record r;
+	clock_t t; //variável para armazenar o tempo
+	int esc;
+
+	printf("\nMENU\n\n");
+	printf("Escolha qual inserção irá medir primeiro:\n");
+	printf("1 - 1000 entradas\n");
+	printf("2 - 10.000 entradas\n");
+	printf("3 - 100.000 entradas\n");
+	scanf("%d",&esc);
+
+	switch(esc) {
+		case 1:
+			t=clock();
+			printf("\nPreenchendo matriz...\n");
+			for(int i=0; i<MIL ; i++){
+				reg[i]= rand() % MIL;
+			}
+			t=clock() - t;
+		    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+
+			printf("ELEMENTOS DA ARVORE: { ");
+		  	for(int i=0; i<MIL; i++){
+				r.key = reg[i];
+				r.value = 1;
+				insertTree(&raiz, r);
+		    printf("%d ", reg[i]);
+			}
+		  	printf("}\n\n");
+
+			//printf("METODO PREORDEM: { ");
+		  	//preordem(raiz);
+		  	//printf("}\n\n");
+
+			t=clock();
+		  	printf("METODO CENTRAL: { ");
+		  	central(raiz);
+			printf("}\n\n");
+			t=clock() - t;
+		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+
+		  	//printf("METODO POSORDEM: { ");
+		  	//posordem(raiz);
+		  	//printf("}\n\n");
+			break;
+		case 2:
+			t=clock();
+			printf("\nPreenchendo matriz...\n");
+			for(int i=0; i<DEZ_MIL ; i++){
+				reg[i]= rand() % MIL;
+			}
+			t=clock() - t;
+		    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+
+			printf("ELEMENTOS DA ARVORE: { ");
+		  	for(int i=0; i<DEZ_MIL; i++){
+				r.key = reg[i];
+				r.value = 1;
+				insertTree(&raiz, r);
+		    printf("%d ", reg[i]);
+			}
+		  	printf("}\n\n");
+
+			//printf("METODO PREORDEM: { ");
+		  	//preordem(raiz);
+		  	//printf("}\n\n");
+
+			t=clock();
+		  	printf("METODO CENTRAL: { ");
+		  	central(raiz);
+			printf("}\n\n");
+			t=clock() - t;
+		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+
+		  	//printf("METODO POSORDEM: { ");
+		  	//posordem(raiz);
+		  	//printf("}\n\n");
+			break;
+		case 3:
+			t=clock();
+			printf("\nPreenchendo matriz...\n");
+			for(int i=0; i<CEM_MIL ; i++){
+				reg[i]= rand() % MIL;
+			}
+			t=clock() - t;
+		    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+
+			printf("ELEMENTOS DA ARVORE: { ");
+		  	for(int i=0; i<CEM_MIL; i++){
+				r.key = reg[i];
+				r.value = 1;
+				insertTree(&raiz, r);
+		    printf("%d ", reg[i]);
+			}
+		  	printf("}\n\n");
+
+			//printf("METODO PREORDEM: { ");
+		  	//preordem(raiz);
+		  	//printf("}\n\n");
+
+			t=clock();
+		  	printf("METODO CENTRAL: { ");
+		  	central(raiz);
+			printf("}\n\n");
+			t=clock() - t;
+		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+
+		  	//printf("METODO POSORDEM: { ");
+		  	//posordem(raiz);
+		  	//printf("}\n\n");
+			break;
+		default:
+			printf("Escolha uma opção válida!");
+			break;
+	}
 }
-*/
