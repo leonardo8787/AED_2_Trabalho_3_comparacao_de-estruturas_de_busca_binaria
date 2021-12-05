@@ -23,3 +23,34 @@ Para tanto, pode-se considerar as implementações já realizadas, adaptando as 
                     3.2) - Há diferença de tempo das inserções, o que afeta cada estrutura em termos de mecanismo de manipulação / balanceamento?
 
                     3.3) - Considerando as três bases de entrada, para quais você indica cada uma das estruturas e porquê?
+
+<h1>Como usar o software</h1>
+
+1) copie o código da página do github: https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria.git
+2) abra uma pasta em seu sistema operacional e digite o seguinte comando: git clone https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria.git
+3) passos à baixo:
+
+Para acessar o software e rodar o software:
+~~~
+make clean
+
+make 
+
+make run
+~~~
+
+<h2>Análise dos Algorítmos</h2>
+teste
+
+<h1>Árvore Binária</h1>
+teste
+
+<h1>Árvore AVL</h1>
+teste
+
+<h1>Árvore Rubro-Negra</h1>
+teste
+
+
+<h1>Considerações Finais</h1>
+teste
