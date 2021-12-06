@@ -58,13 +58,6 @@ int main(){
 	return 0;
 }
 
-
-
-
-
-
-
-
 void menu_avl(){
 
 	system("cls || clear");
@@ -77,61 +70,9 @@ void menu_avl(){
 	float reg3[CEM_MIL]={};
 	clock_t t; //variável para armazenar o tempo
 	int num;
+	FILE *file;
 
-	printf("\nÁrvore AVL em C\n\n");
-	printf("autor: Leonardo Campos\n");
-	
-	/*do{
-	    printf("Escolha uma opção: \n");
-	    printf("0 - sair\n");
-	    printf("1 - inserir valor\n");
-	    printf("2 - remover\n");
-	    printf("3 - imprimir árvore\n");
-	    printf("4 - limpar tela\n");
-	    scanf("%d", &num);
-	    switch(num){
-	        case 0:
-	            printf("\nSaindo...\n");
-	            break;
-	        case 1:
-	            printf("\nDigite um valor: ");
-	            scanf("%d", &num);
-	            t=clock();
-	            r.key = num;
-	            r.value = 1;
-	            avl_insertTree(&raiz, r);
-	            t=clock() - t;
-	            printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-	            break;
-	        case 2:
-	            printf("\nDigite um número para remover: \n");
-	            t=clock();
-	            scanf("%d", &num);
-	            r.key = num;
-	            avl_removeTree(&raiz, &raiz, r);
-	            t=clock() - t;
-	            printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-	            break;
-	        case 3:
-	            printf("\nÁrvore\n");
-	            t=clock();
-	            printf("[");
-	            avl_central(raiz);
-	            printf("fim]");
-	            t=clock() - t;
-	            printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-	            printf("\n");
-	            break;
-	        case 4:
-	           	system("cls || clear");
-	        default:
-	            printf("\nEscolha uma opção válida!\n");
-	            break;
-	    }
-	}while(num);*/
-
-
-	printf("\nMENU_Binária\n\n");
+	printf("\nMENU_AVL\n\n");
 	printf("Escolha qual inserção irá medir primeiro:\n");
 	printf("1 - 1000 entradas\n");
 	printf("2 - 10.000 entradas\n");
@@ -140,6 +81,7 @@ void menu_avl(){
 
 	switch(num) {
 		case 1:
+			raiz = avl_CreateTree();
 			t=clock();
 			printf("\nPreenchendo matriz...\n");
 			for(int i=0; i<MIL ; i++){
@@ -153,6 +95,8 @@ void menu_avl(){
 	            r.key = reg1[i];
 	            r.value = 1;
 	            avl_insertTree(&raiz, r);
+	            file = fopen("1000.txt","w");
+	            fclose(file);
 		    	printf("%f ", reg1[i]);
 			}
 		  	printf("}\n\n");
@@ -163,13 +107,9 @@ void menu_avl(){
 			printf("}\n\n");
 			t=clock() - t;
 		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			for(int i=0; i<MIL; i++){
-	            r.key = reg1[i];
-	            avl_removeTree(&raiz, &raiz, r);
-			}
-			printf("\nárvore limpa!\n");
 			break;
 		case 2:
+			raiz = avl_CreateTree();
 			t=clock();
 			printf("\nPreenchendo matriz...\n");
 			for(int i=0; i<DEZ_MIL ; i++){
@@ -193,13 +133,9 @@ void menu_avl(){
 			printf("}\n\n");
 			t=clock() - t;
 		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			for(int i=0; i<DEZ_MIL; i++){
-				r.key = reg2[i];
-	            avl_removeTree(&raiz, &raiz, r);
-			}
-			printf("\nárvore limpa!\n");
 			break;
 		case 3:
+			raiz = avl_CreateTree();
 			t=clock();
 			printf("\nPreenchendo matriz...\n");
 			for(int i=0; i<CEM_MIL ; i++){
@@ -223,21 +159,12 @@ void menu_avl(){
 			printf("}\n\n");
 			t=clock() - t;
 		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			for(int i=0; i<CEM_MIL; i++){
-	            r.key = reg3[i];
-	            avl_removeTree(&raiz, &raiz, r);
-			}
-			printf("\nárvore limpa!\n");
 			break;
 		default:
 			printf("Escolha uma opção válida!");
 			break;
 	}
 }
-
-
-
-
 
 void menu_rubro_negro() {
     TNoRB *arvore = NULL;
@@ -246,28 +173,35 @@ void menu_rubro_negro() {
     float reg4[MIL]={};
     float reg5[DEZ_MIL]={};
     float reg6[CEM_MIL]={};
+    int num;
+    FILE *file;
     
+		printf("\nMENU_RED_BLACK\n\n");
+		printf("Escolha qual inserção irá medir primeiro:\n");
+		printf("1 - 1000 entradas\n");
+		printf("2 - 10.000 entradas\n");
+		printf("3 - 100.000 entradas\n");
+		scanf("%d",&num);
 
-    do {
-        printf("1 - Inserir elemento;\n2 - Remover elemento;\n3 - Ver árvore;\n4 - Sair\n");
-        scanf("%d", &opc);
-
-        switch(opc) {
+        switch(num) {
 			case 1:
+				arvore = NULL;
 				t=clock();
 				printf("\nPreenchendo matriz...\n");
 				for(int i=0; i<MIL ; i++){
 					reg4[i] = rand() % MIL;
 				}
 				t=clock() - t;
-			    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+			    printf("Tempo de execucao de teste: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 				printf("ELEMENTOS DA ARVORE: { ");
 			  	for(int i=0; i<MIL; i++){
 					//r.key = reg4[i];
 					//r.value = 1;
-					insereNo(&arvore, NULL, &arvore, n);
-			    printf("%f ", reg4[i]);
+					//reg4[i] = n;
+					n = reg4[i]; 
+					insereNo(&arvore, NULL, &arvore, i);
+			    //printf("%f ", reg4[i]);
 				}
 			  	printf("}\n\n");
 
@@ -280,6 +214,7 @@ void menu_rubro_negro() {
 				break;
 
 			case 2:
+				arvore = NULL;
 				t=clock();
 				printf("\nPreenchendo matriz...\n");
 				for(int i=0; i<DEZ_MIL ; i++){
@@ -307,6 +242,7 @@ void menu_rubro_negro() {
 
 
 			case 3:
+				arvore = NULL;
 				t=clock();
 				printf("\nPreenchendo matriz...\n");
 				for(int i=0; i<CEM_MIL ; i++){
@@ -334,15 +270,9 @@ void menu_rubro_negro() {
 
             default:
                 printf("Opção inválida.\n");
+                break;
         }
-
-        printf("==========\n");
-    } while (flag);
 }
-
-
-
-
 
 void menu_binaria(){
 
@@ -356,6 +286,7 @@ void menu_binaria(){
 	Record r;
 	clock_t t; //variável para armazenar o tempo
 	int esc;
+	FILE *file;
 
 	printf("\nMENU_Binária\n\n");
 	printf("Escolha qual inserção irá medir primeiro:\n");
@@ -366,6 +297,7 @@ void menu_binaria(){
 
 	switch(esc) {
 		case 1:
+			raiz = CreateTree();
 			t=clock();
 			printf("\nPreenchendo matriz...\n");
 			for(int i=0; i<MIL ; i++){
@@ -389,18 +321,13 @@ void menu_binaria(){
 			printf("}\n\n");
 			t=clock() - t;
 		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			for(int i=0; i<MIL; i++){
-				r.key = reg7[i];
-				r.value = 1;
-				removeTree(&raiz, r);
-			}
-			printf("\nárvore limpa!\n");
 			break;
 		case 2:
+			raiz = CreateTree();
 			t=clock();
 			printf("\nPreenchendo matriz...\n");
 			for(int i=0; i<DEZ_MIL ; i++){
-				reg8[i]= rand() % MIL;
+				reg8[i]= rand() % DEZ_MIL;
 			}
 			t=clock() - t;
 		    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
@@ -420,18 +347,13 @@ void menu_binaria(){
 			printf("}\n\n");
 			t=clock() - t;
 		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			for(int i=0; i<DEZ_MIL; i++){
-				r.key = reg8[i];
-				r.value = 1;
-				removeTree(&raiz, r);
-			}
-			printf("\nárvore limpa!\n");
 			break;
 		case 3:
+			raiz = CreateTree();
 			t=clock();
 			printf("\nPreenchendo matriz...\n");
 			for(int i=0; i<CEM_MIL ; i++){
-				reg9[i]= rand() % MIL;
+				reg9[i]= rand() % CEM_MIL;
 			}
 			t=clock() - t;
 		    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
@@ -451,12 +373,6 @@ void menu_binaria(){
 			printf("}\n\n");
 			t=clock() - t;
 		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			for(int i=0; i<CEM_MIL; i++){
-				r.key = reg9[i];
-				r.value = 1;
-				removeTree(&raiz, r);
-			}
-			printf("\nárvore limpa!\n");
 			break;
 		default:
 			printf("Escolha uma opção válida!");

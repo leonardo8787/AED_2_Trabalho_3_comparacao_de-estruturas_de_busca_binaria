@@ -89,9 +89,9 @@ void avl_rebalanceTree(Tree_avl **t){
   if((*t)->dir)
     right = avl_getWeight(&(*t)->dir->esq) - avl_getWeight(&(*t)->dir->dir);
 
-  printf("==== Valores de balanceamento: ====\n");
-  printf("Raiz:%d, Filho esq:%d, Filho dir:%d\n", balance, left, right);
-  printf("===================================\n");
+  //printf("==== Valores de balanceamento: ====\n");
+  //printf("Raiz:%d, Filho esq:%d, Filho dir:%d\n", balance, left, right);
+  //printf("===================================\n");
 
   if(balance == 2 && left >= 0)
     avl_rotacaoSimplesDireita(t);
@@ -206,58 +206,3 @@ void avl_rotacaoDuplaEsquerda(Tree_avl **t){
   avl_rotacaoSimplesDireita(&(*t)->dir);
   avl_rotacaoSimplesEsquerda(t);
 }
-/*
-void menu_avl(){
-
-  system("cls || clear");
-  
-  Tree_avl *raiz = avl_CreateTree();
-  Tree_avl *aux = avl_CreateTree();
-  Record_avl r;
-  int num;
-
-  printf("\nÁrvore AVL em C\n\n");
-  printf("autor: Leonardo Campos\n");
-  
-  do{
-      printf("Escolha uma opção: \n");
-      printf("0 - sair\n");
-      printf("1 - inserir valor\n");
-      printf("2 - remover\n");
-      printf("3 - imprimir árvore\n");
-      printf("4 - limpar tela\n");
-      scanf("%d", &num);
-      switch(num){
-          case 0:
-              printf("\nSaindo...\n");
-              break;
-          case 1:
-              printf("\nDigite um valor: ");
-              scanf("%d", &num);
-              r.key = num;
-              r.value = 1;
-              avl_insertTree(&raiz, r);
-              break;
-          case 2:
-              printf("\nDigite um número para remover: \n");
-              scanf("%d", &num);
-              r.key = num;
-              avl_removeTree(&raiz, &raiz, r);
-              break;
-          case 3:
-              printf("\nÁrvore\n");
-              printf("[");
-              avl_central(raiz);
-              printf("fim]");
-              //showTreeInOrder(aux);
-              printf("\n");
-              break;
-          case 4:
-              system("cls || clear");
-          default:
-              printf("\nEscolha uma opção válida!\n");
-              break;
-      }
-  }while(num);
-}
-*/

@@ -171,7 +171,8 @@ void inOrder(TNoRB *raiz) {
     if (raiz == NULL) return;
 
     inOrder(raiz->esq);
-    printf("Mora: %p\nChave: %d, Cor: %d\nPai: %p\nEsq: %p\nDir: %p\n\n", raiz, raiz->chave, raiz->cor, raiz->pai, raiz->esq, raiz->dir);
+    //printf("Mora: %p\nChave: %d, Cor: %d\nPai: %p\nEsq: %p\nDir: %p\n\n", raiz, raiz->chave, raiz->cor, raiz->pai, raiz->esq, raiz->dir);
+    printf("%d ", raiz->chave);
     inOrder(raiz->dir);
 }
 
