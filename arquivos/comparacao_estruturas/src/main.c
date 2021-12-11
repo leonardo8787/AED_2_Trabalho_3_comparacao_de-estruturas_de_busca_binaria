@@ -16,6 +16,7 @@
 void menu_avl();
 void menu_rubro_negro();
 void menu_binaria();
+void preenche();
 
 int main(){
 
@@ -31,6 +32,7 @@ int main(){
 		printf("1 - árvore binária\n");
 		printf("2 - árvore AVL\n");
 		printf("3 - árvore Rubro Negra\n");
+		printf("4 - Preencher arquivos");
 		scanf("%d", &op);
 		switch(op){
 			case 0:
@@ -47,6 +49,10 @@ int main(){
 			case 3:
 				printf("Árvore Rubro Negra");
 				menu_rubro_negro();
+				break;
+			case 4:
+				printf("preenchendo...");
+				preenche();
 				break;
 			default:
 				printf("Escolha uma opção válida!\n");
@@ -71,19 +77,11 @@ void menu_avl(){
 	float reg3[CEM_MIL]={};
 	clock_t t; //variável para armazenar o tempo
 	int num;
-	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
-	file1 = fopen("1000.txt","w");
-	file2 = fopen("10000.txt", "w");
-	file3 = fopen("100000.txt", "w");
-	file_search_1 = fopen("search_5000.txt", "w");
-	file_search_2 = fopen("search_10000.txt", "w");
-	file_search_3 = fopen("search_100000.txt", "w");
-	char array1[1000];
-	char array2[10000];
-	char array3[100000];
-	char array_search_1[5000];
-	char array_search_2[10000];
-	char array_search_3[100000];
+	FILE *file1;
+	file1 = fopen("1000.txt","r");
+
+	char *result; 
+	char *linha;
 
 	printf("\nMENU_AVL\n\n");
 	printf("Escolha qual inserção irá medir primeiro:\n");
@@ -95,6 +93,17 @@ void menu_avl(){
 	switch(num) {
 		case 1:
 			raiz = avl_CreateTree();
+
+			if(file1 == NULL)
+			  printf("Erro ao abrir\n");
+			else {
+				while(!feof(file1)) {
+					result = fgets(linha, 50, file1);
+		 			if(result)
+						printf("%s", linha);
+			 		}
+			 	}
+			 	/*
 			t=clock();
 			printf("\nPreenchendo matriz...\n");
 			for(int i=0; i<MIL ; i++){
@@ -196,6 +205,7 @@ void menu_avl(){
 			}
 			t=clock() - t;
 		    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+			
 			printf("ELEMENTOS DA BUSCA: { ");
 
 		  	for(int i=0; i<5000; i++){
@@ -318,18 +328,12 @@ void menu_avl(){
 			}
 			t=clock() - t;
 
-			break;
+			break;*/
 		default:
 			printf("Escolha uma opção válida!");
 			break;
 	}
 	fclose(file1);
-	fclose(file2);
-	fclose(file3);
-
-	fclose(file_search_1);
-	fclose(file_search_2);
-	fclose(file_search_3);
 }
 
 void menu_rubro_negro() {
@@ -575,4 +579,84 @@ void menu_binaria(){
 	//fclose(file_search_1);
 	//fclose(file_search_2);
 	//fclose(file_search_3);
+}
+
+void preenche() {
+	system("cls || clear");
+
+	float arq_1[MIL], arq_2[DEZ_MIL], arq_3[CEM_MIL];
+	char array_1[1000];
+	char array_2[10000];
+	char array_3[100000];
+	char array_search_1[5000];
+	char array_search_2[10000];
+	char array_search_3[100000];
+	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
+	file1 = fopen("1000.txt","w");
+	file2 = fopen("10000.txt", "w");
+	file3 = fopen("100000.txt", "w");
+	file_search_1 = fopen("search_5000.txt", "w");
+	file_search_2 = fopen("search_10000.txt", "w");
+	file_search_3 = fopen("search_100000.txt", "w");
+
+	printf("\nPreenchendo arquivo MIL...\n");
+	for(int i=0; i<MIL ; i++){
+		arq_1[i] = rand() % MIL;
+	    sprintf(array_1, "%.6f", arq_1[i]);
+	    strcat(array_1, "\n");
+	    fputs(array_1, file1);
+	}
+
+	printf("Preenchendo arquivo DEZ_MIL...\n");
+	for(int i=0; i<DEZ_MIL ; i++){
+		arq_2[i] = rand() % DEZ_MIL;
+	    sprintf(array_2, "%.6f", arq_2[i]);
+	    strcat(array_2, "\n");
+	    fputs(array_2, file2);
+	}
+
+	printf("Preenchendo arquivo CEM_MIL...\n");
+	for(int i=0; i<CEM_MIL ; i++){
+		arq_3[i] = rand() % CEM_MIL;
+	    sprintf(array_3, "%.6f", arq_3[i]);
+	    strcat(array_3, "\n");
+	    fputs(array_3, file3);
+	}
+
+	printf("Preenchendo arquivo search_5000...\n");
+
+		  	for(int i=0; i<5000; i++){
+		  		array_search_1[i] = rand() % 5000;
+	            sprintf(array_search_1, "%.6d", array_search_1[i]);
+	            strcat(array_search_1, "\n");
+	            fputs(array_search_1, file_search_1);
+			}
+
+	printf("Preencher arquivo search_10000...\n");
+
+
+		  	for(int i=0; i<10000; i++){
+		  		array_search_2[i] = rand() % 10000;
+	            sprintf(array_search_2, "%.6d", array_search_2[i]);
+	            strcat(array_search_2, "\n");
+	            fputs(array_search_2, file_search_2);
+			}
+
+	printf("Preencher arquivo search_100000...\n");
+
+
+		  	for(int i=0; i<100000; i++){
+		  		array_search_3[i] = rand() % 100000;
+	            sprintf(array_search_3, "%.6d", array_search_3[i]);
+	            strcat(array_search_3, "\n");
+	            fputs(array_search_3, file_search_3);
+			}
+
+	fclose(file1);
+	fclose(file2);
+	fclose(file3);
+
+	fclose(file_search_1);
+	fclose(file_search_2);
+	fclose(file_search_3);
 }
