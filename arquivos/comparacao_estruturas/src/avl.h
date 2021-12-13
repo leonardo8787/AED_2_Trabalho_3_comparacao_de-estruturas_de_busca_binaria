@@ -8,14 +8,14 @@ typedef struct Record_avl Record_avl;
 typedef struct Tree_avl Tree_avl;
 
 struct Record_avl{
-	int key;
-	int value;
+	float key;
+	float value;
 };
 
 struct Tree_avl{
 	Record_avl reg;
 	Tree_avl *esq, *dir;
-	int weight;
+	float weight;
 };
 
 Tree_avl* avl_CreateTree();

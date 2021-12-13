@@ -139,7 +139,7 @@ void avl_removeTree(Tree_avl **t, Tree_avl **f, Record_avl r){
 void avl_preordem(Tree_avl *t)
 {
   if(!(t == NULL)){
-    printf("%d\t", t->reg.key);
+    printf("%f\t", t->reg.key);
     avl_preordem(t->esq); 
     avl_preordem(t->dir); 
   }
@@ -150,7 +150,7 @@ void avl_central(Tree_avl *t)
 {
   if(!(t == NULL)){
     avl_central(t->esq); 
-    printf("%d, ", t->reg.key);
+    printf("%f, ", t->reg.key);
     avl_central(t->dir); 
   }
 }
@@ -160,7 +160,7 @@ void avl_posordem(Tree_avl *t)
   if(!(t == NULL)){
     avl_posordem(t->esq); 
     avl_posordem(t->dir); 
-    printf("%d\t", t->reg.key);
+    printf("%f\t", t->reg.key);
   }
 }
 
