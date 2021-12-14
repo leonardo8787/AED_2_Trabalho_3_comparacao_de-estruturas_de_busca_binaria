@@ -114,6 +114,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 			printf("contador de 1000 : %d\n", cont);
 // /*
 // 			t=clock();
@@ -138,6 +139,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
@@ -154,6 +156,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
@@ -170,6 +173,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 			break;
 
 		case 2:
@@ -190,6 +194,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 			printf("contador de 10000 : %d\n", cont);
 /*
 			t=clock();
@@ -215,6 +220,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
@@ -231,6 +237,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
@@ -247,6 +254,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			break;
 		case 3:
@@ -267,6 +275,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 			printf("contador de 1.000.000 : %d\n", cont);
 /*
 			t=clock();
@@ -293,6 +302,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 10.000 entradas \n");
 			t=clock();
@@ -309,6 +319,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
@@ -326,6 +337,7 @@ void menu_avl(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			break;
 		default:
@@ -591,6 +603,7 @@ void menu_rubro_negro() {
 	fclose(file_search_3);
 }
 
+
 void menu_binaria(){
 
 	system("clear");
@@ -637,6 +650,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 /*
 			t=clock();
@@ -660,6 +674,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
@@ -675,6 +690,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 100.000 entradas \n");
 			t=clock();
@@ -690,6 +706,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			break;
 		case 2:
@@ -709,6 +726,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 /*
 			t=clock();
@@ -732,6 +750,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
@@ -747,6 +766,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
@@ -762,6 +782,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			break;
 		case 3:
@@ -781,6 +802,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 /*
 			t=clock();
@@ -804,6 +826,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
@@ -819,6 +842,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
@@ -834,6 +858,7 @@ void menu_binaria(){
 			 	}
 			}
 			t=clock() - t;
+			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			break;
 		default:
