@@ -40,17 +40,46 @@ make run
 ~~~
 
 <h2>Análise dos Algorítmos</h2>
-teste
 
 <h1>Árvore Binária</h1>
-teste
+
+Gráfico de 1.000 inserções.
+
+<p>
+	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/binaria_1000.png" width="400" height="300">
+</p>
+
+Gráfico de 10.000 inserções.
+
+<p>
+	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/binaria_10000.png" width="400" height="300">
+</p>
+
+Gráfico de 1.000.000 inserções.
+
+<p>
+	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/binaria_1000000.png" width="400" height="300">
+</p>
 
 <h1>Árvore AVL</h1>
-teste
+
+Gráfico de 1.000 inserções.
+
+<p>
+	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/avl_1000%20-%20Copia.png" width="400" height="300">
+</p>
+
+Gráfico de 10.000 inserções.
+
+<p>
+	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/avl_10000.png" width="400" height="300">
+</p>
+
+
 
 <h1>Árvore Rubro-Negra</h1>
-teste
+
 
 
 <h1>Considerações Finais</h1>
-teste
+
