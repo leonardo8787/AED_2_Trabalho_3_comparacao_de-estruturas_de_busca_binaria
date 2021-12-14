@@ -1,7 +1,7 @@
 #include "avl.h"
-#include "rbt.h"
+//#include "rbt.h"
 #include "binaria.h"
-#include "gera_aleatorio.h"
+//#include "treeRB.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -22,7 +22,7 @@ int main(){
 
 	int op;
 
-	system("clear || cls");
+	system("clear");
 
 	do{
 		printf("\n------MENU------\n\n");
@@ -67,18 +67,19 @@ int main(){
 
 void menu_avl(){
 
-	system("cls || clear");
+	system("clear");
 	
 	Tree_avl *raiz = avl_CreateTree();
 	Tree_avl *aux = avl_CreateTree();
 	Record_avl r;
 	clock_t t; //variável para armazenar o tempo
 	int num;
+	int cont = 0;
 
 	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
 	file1 = fopen("1000.txt","r");
 	file2 = fopen("10000.txt", "r");
-	file3 = fopen("100000.txt", "r");
+	file3 = fopen("1000000.txt", "r");
 	file_search_1 = fopen("search_5000.txt", "r");
 	file_search_2 = fopen("search_10000.txt", "r");
 	file_search_3 = fopen("search_100000.txt", "r");
@@ -90,88 +91,87 @@ void menu_avl(){
 	printf("Escolha qual árvore irá medir primeiro:\n");
 	printf("1 - 1000 entradas\n");
 	printf("2 - 10.000 entradas\n");
-	printf("3 - 100.000 entradas\n");
+	printf("3 - 1.000.000 entradas\n");
 	scanf("%d",&num);
+
 
 	switch(num) {
 		case 1:
 			raiz = avl_CreateTree();
-
 			t=clock();
 			if(file1 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
+				printf("teste2\n");
 				while(!feof(file1)) {
 					result = fgets(linha, 50, file1);
-		            r.key = atof(result);
-		            r.value = 1;
-		            avl_insertTree(&raiz, r);
 		 			if(result){
-						printf("%s", linha);
+			            r.key = atof(linha);
+			            r.value = 1;
+						//printf("%s", linha);
+						avl_insertTree(&raiz, r, &cont);
 		 			}
 			 	}
-			 	printf("teste");
 			}
 			t=clock() - t;
-
-			printf("teste");
-
-			t=clock();
-			printf("\nÁrvore AVL ordenada\n");
-		  	printf("{ ");
-		  	avl_central(raiz);
-			printf("}\n\n");
-			t=clock() - t;
-
-			printf("buscas na árvore: 5000");
+			printf("contador de 1000 : %d\n", cont);
+// /*
+// 			t=clock();
+// 			printf("\nÁrvore AVL ordenada\n");
+// 		  	printf("{ ");
+// 		  	avl_central(raiz);
+// 			printf("}\n\n");
+// 			t=clock() - t;
+// */
+			printf("buscas na árvore: 5000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_1)) {
 					result = fgets(linha, 50, file_search_1);
-					r.key = atof(result);
-					avl_pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						//printf("%s", linha);
+						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 10000");
+			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
 			if(file_search_2 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_2)) {
 					result = fgets(linha, 50, file_search_2);
-					r.key = atof(result);
-					avl_pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+		 				r.key = atof(result);
+						//printf("%s", linha);
+						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 100000");
+			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
 			if(file_search_3 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_3)) {
 					result = fgets(linha, 50, file_search_3);
-					r.key = atof(result);
-					avl_pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						//printf("%s", linha);
+						r.key = atof(result);
+						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
-
 			break;
+
 		case 2:
 			raiz = avl_CreateTree();
 
@@ -181,67 +181,68 @@ void menu_avl(){
 			else {
 				while(!feof(file2)) {
 					result = fgets(linha, 50, file2);
-					r.key = atof(result);
-		            r.value = 1;
-		            avl_insertTree(&raiz, r);
 		 			if(result){
-						printf("%s", linha);
+			            r.key = atof(linha);
+			            r.value = 1;
+						//printf("%s", linha);
+						avl_insertTree(&raiz, r, &cont);
 		 			}
 			 	}
 			}
 			t=clock() - t;
-
+			printf("contador de 10000 : %d\n", cont);
+/*
 			t=clock();
 			printf("\nÁrvore AVL ordenada\n");
 		  	printf("{ ");
 		  	avl_central(raiz);
 			printf("}\n\n");
 			t=clock() - t;
+*/
 
-
-			printf("buscas na árvore: 5000");
+			printf("buscas na árvore: 5000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_1)) {
 					result = fgets(linha, 50, file_search_1);
-					r.key = atof(result);
-					avl_pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						//printf("%s", linha);
+						r.key = atof(linha);
+						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 10000");
+			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
 			if(file_search_2 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_2)) {
 					result = fgets(linha, 50, file_search_2);
-					r.key = atof(result);
-					avl_pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						//printf("%s", linha);
+						r.key = atof(linha);
+						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 100000");
+			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
 			if(file_search_3 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_3)) {
 					result = fgets(linha, 50, file_search_3);
-					r.key = atof(result);
-					avl_pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						//printf("%s", linha);
+						r.key = atof(linha);
+						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
@@ -256,68 +257,71 @@ void menu_avl(){
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file3)) {
-					result = fgets(linha, 50, file3);
-					r.key = atof(result);
-		            r.value = 1;
-		            avl_insertTree(&raiz, r);
+					result = fgets(linha, 50, file1);
 		 			if(result){
-						printf("%s", linha);
+			            r.key = atof(linha);
+			            r.value = 1;
+						//printf("%s", linha);
+						avl_insertTree(&raiz, r, &cont);
 		 			}
 			 	}
 			}
 			t=clock() - t;
-
+			printf("contador de 1.000.000 : %d\n", cont);
+/*
 			t=clock();
 			printf("\nÁrvore AVL ordenada\n");
 		  	printf("{ ");
 		  	avl_central(raiz);
 			printf("}\n\n");
 			t=clock() - t;
+*/
 
-
-			printf("buscas na árvore: 5000");
+			printf("buscas na árvore: 5.000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_1)) {
 					result = fgets(linha, 50, file_search_1);
-					r.key = atof(result);
-					avl_pesquisa(&raiz, &aux, r);
+
 		 			if(result){
-						printf("%s", linha);
+						//printf("%s", linha);
+						r.key = atof(linha);
+						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 10000");
+			printf("buscas na árvore: 10.000 entradas \n");
 			t=clock();
 			if(file_search_2 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_2)) {
 					result = fgets(linha, 50, file_search_2);
-					r.key = atof(result);
-					avl_pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						//printf("%s", linha);
+						r.key = atof(linha);
+						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 100000");
+			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
 			if(file_search_3 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_3)) {
 					result = fgets(linha, 50, file_search_3);
-					r.key = atof(result);
-					avl_pesquisa(&raiz, &aux, r);
+
 		 			if(result){
-						printf("%s", linha);
+						//printf("%s", linha);
+						r.key = atof(linha);
+						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
@@ -326,12 +330,10 @@ void menu_avl(){
 			break;
 		default:
 			printf("Escolha uma opção válida!");
-			break;
 	}
 	fclose(file1);
 	fclose(file2);
 	fclose(file3);
-
 	fclose(file_search_1);
 	fclose(file_search_2);
 	fclose(file_search_3);
@@ -339,15 +341,15 @@ void menu_avl(){
 
 void menu_rubro_negro() {
 
-    TNoRB *arvore = NULL;
-    clock_t t; //variável para armazenar o tempo
-    int opc = -1, flag = 1, n, rn;
+    // TNoRB *arvore = NULL;
+    // clock_t t; //variável para armazenar o tempo
+    // int opc = -1, flag = 1, n, rn;
     int num;
 
 	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
 	file1 = fopen("1000.txt","r");
 	file2 = fopen("10000.txt", "r");
-	file3 = fopen("100000.txt", "r");
+	file3 = fopen("1000000.txt", "r");
 	file_search_1 = fopen("search_5000.txt", "r");
 	file_search_2 = fopen("search_10000.txt", "r");
 	file_search_3 = fopen("search_100000.txt", "r");
@@ -360,18 +362,220 @@ void menu_rubro_negro() {
 		printf("Escolha qual inserção irá medir primeiro:\n");
 		printf("1 - 1000 entradas\n");
 		printf("2 - 10.000 entradas\n");
-		printf("3 - 100.000 entradas\n");
+		printf("3 - 1.000.000 entradas\n");
 		scanf("%d",&num);
 
         switch(num) {
-			case 1:
+			case 1:/*
+				t=clock();
+				if(file3 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file3)) {
+						result = fgets(linha, 50, file1);
+			 			if(result){
+				            n = atof(linha);
+							//printf("%s", linha);
+							insereNo(&arvore, NULL, &arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;
+
+				printf("buscas na árvore: 5.000 entradas\n");
+				t=clock();
+				if(file_search_1 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file_search_1)) {
+						result = fgets(linha, 50, file_search_1);
+			 			if(result){
+							//printf("%s", linha);
+							n = atof(linha);
+							searchRB(&arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;
+
+				printf("buscas na árvore: 10.000 entradas \n");
+				t=clock();
+				if(file_search_2 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file_search_2)) {
+						result = fgets(linha, 50, file_search_2);
+			 			if(result){
+							//printf("%s", linha);
+							n = atof(linha);
+							searchRB(&arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;
+
+				printf("buscas na árvore: 100.000 entradas\n");
+				t=clock();
+				if(file_search_3 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file_search_3)) {
+						result = fgets(linha, 50, file_search_3);
+			 			if(result){
+							//printf("%s", linha);
+							n = atof(linha);
+							searchRB(&arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;*/
 				break;
 
-			case 2:
+			case 2:/*
+				t=clock();
+				if(file3 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file3)) {
+						result = fgets(linha, 50, file1);
+			 			if(result){
+				            n = atof(linha);
+							//printf("%s", linha);
+							insereNo(&arvore, NULL, &arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;
+
+				t=clock();
+				printf("\nÁrvore AVL ordenada\n");
+			  	printf("{ ");
+			  	avl_central(raiz);
+				printf("}\n\n");
+				t=clock() - t;
+
+
+				printf("buscas na árvore: 5.000 entradas\n");
+				t=clock();
+				if(file_search_1 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file_search_1)) {
+						result = fgets(linha, 50, file_search_1);
+			 			if(result){
+							//printf("%s", linha);
+							n = atof(linha);
+							searchRB(&arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;
+
+				printf("buscas na árvore: 10.000 entradas \n");
+				t=clock();
+				if(file_search_2 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file_search_2)) {
+						result = fgets(linha, 50, file_search_2);
+			 			if(result){
+							//printf("%s", linha);
+							n = atof(linha);
+							searchRB(&arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;
+
+				printf("buscas na árvore: 100.000 entradas\n");
+				t=clock();
+				if(file_search_3 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file_search_3)) {
+						result = fgets(linha, 50, file_search_3);
+			 			if(result){
+							//printf("%s", linha);
+							n = atof(linha);
+							searchRB(&arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;*/
 				break;
 
 
-			case 3:
+			case 3:/*
+				t=clock();
+				if(file3 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file3)) {
+						result = fgets(linha, 50, file1);
+			 			if(result){
+				            n = atof(linha);
+							//printf("%s", linha);
+							insereNo(&arvore, NULL, &arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;
+
+				t=clock();
+				printf("\nÁrvore AVL ordenada\n");
+			  	printf("{ ");
+			  	avl_central(raiz);
+				printf("}\n\n");
+				t=clock() - t;
+
+
+				printf("buscas na árvore: 5.000 entradas\n");
+				t=clock();
+				if(file_search_1 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file_search_1)) {
+						result = fgets(linha, 50, file_search_1);
+			 			if(result){
+							//printf("%s", linha);
+							n = atof(linha);
+							searchRB(&arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;
+
+				printf("buscas na árvore: 10.000 entradas \n");
+				t=clock();
+				if(file_search_2 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file_search_2)) {
+						result = fgets(linha, 50, file_search_2);
+			 			if(result){
+							//printf("%s", linha);
+							n = atof(linha);
+							searchRB(&arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;
+
+				printf("buscas na árvore: 100.000 entradas\n");
+				t=clock();
+				if(file_search_3 == NULL)
+				  printf("Erro ao abrir\n");
+				else {
+					while(!feof(file_search_3)) {
+						result = fgets(linha, 50, file_search_3);
+			 			if(result){
+							//printf("%s", linha);
+							n = atof(linha);
+							searchRB(&arvore, n);
+			 			}
+				 	}
+				}
+				t=clock() - t;*/
 				break;
 
             default:
@@ -389,7 +593,7 @@ void menu_rubro_negro() {
 
 void menu_binaria(){
 
-	system("clear || cls");
+	system("clear");
 
 	Tree *raiz = CreateTree();
 	Tree *aux = CreateTree();
@@ -400,7 +604,7 @@ void menu_binaria(){
 	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
 	file1 = fopen("1000.txt","r");
 	file2 = fopen("10000.txt", "r");
-	file3 = fopen("100000.txt", "r");
+	file3 = fopen("1000000.txt", "r");
 	file_search_1 = fopen("search_5000.txt", "r");
 	file_search_2 = fopen("search_10000.txt", "r");
 	file_search_3 = fopen("search_100000.txt", "r");
@@ -409,10 +613,10 @@ void menu_binaria(){
 	char linha[50];
 
 	printf("\nMENU_Binária\n\n");
-	printf("Escolha qual inserção irá medir primeiro:\n");
+	printf("Escolha:\n");
 	printf("1 - 1000 entradas\n");
 	printf("2 - 10.000 entradas\n");
-	printf("3 - 100.000 entradas\n");
+	printf("3 - 1.000.000 entradas\n");
 	scanf("%d",&esc);
 
 	switch(esc) {
@@ -425,69 +629,63 @@ void menu_binaria(){
 			else {
 				while(!feof(file1)) {
 					result = fgets(linha, 50, file1);
-		            r.key = atof(result);
-		            r.value = 1;
-		            insertTree(&raiz, r);
 		 			if(result){
-						printf("%s", linha);
+		            	r.key = atof(linha);
+			            r.value = 1;
+			            insertTree(&raiz, r);
 		 			}
 			 	}
-			 	printf("teste");
 			}
 			t=clock() - t;
 
-			printf("teste");
-
+/*
 			t=clock();
 			printf("\nÁrvore AVL ordenada\n");
 		  	printf("{ ");
 		  	central(raiz);
 			printf("}\n\n");
 			t=clock() - t;
-
-			printf("buscas na árvore: 5000");
+*/
+			printf("buscas na árvore: 5.000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_1)) {
 					result = fgets(linha, 50, file_search_1);
-					r.key = atof(result);
-					pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 10000");
+			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
 			if(file_search_2 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_2)) {
 					result = fgets(linha, 50, file_search_2);
-					r.key = atof(result);
-					pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 100000");
+			printf("buscas na árvore: 100.000 entradas \n");
 			t=clock();
 			if(file_search_3 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_3)) {
 					result = fgets(linha, 50, file_search_3);
-					r.key = atof(result);
-					pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
@@ -503,69 +701,63 @@ void menu_binaria(){
 			else {
 				while(!feof(file2)) {
 					result = fgets(linha, 50, file2);
-		            r.key = atof(result);
-		            r.value = 1;
-		            insertTree(&raiz, r);
 		 			if(result){
-						printf("%s", linha);
+		            	r.key = atof(linha);
+			            r.value = 1;
+			            insertTree(&raiz, r);
 		 			}
 			 	}
-			 	printf("teste");
 			}
 			t=clock() - t;
 
-			printf("teste");
-
+/*
 			t=clock();
 			printf("\nÁrvore AVL ordenada\n");
 		  	printf("{ ");
 		  	central(raiz);
 			printf("}\n\n");
 			t=clock() - t;
-
-			printf("buscas na árvore: 5000");
+*/
+			printf("buscas na árvore: 5.000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_1)) {
 					result = fgets(linha, 50, file_search_1);
-					r.key = atof(result);
-					pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 10000");
+			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
 			if(file_search_2 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_2)) {
 					result = fgets(linha, 50, file_search_2);
-					r.key = atof(result);
-					pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 100000");
+			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
 			if(file_search_3 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_3)) {
 					result = fgets(linha, 50, file_search_3);
-					r.key = atof(result);
-					pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
@@ -581,69 +773,63 @@ void menu_binaria(){
 			else {
 				while(!feof(file3)) {
 					result = fgets(linha, 50, file3);
-		            r.key = atof(result);
-		            r.value = 1;
-		            insertTree(&raiz, r);
 		 			if(result){
-						printf("%s", linha);
+		            	r.key = atof(linha);
+			            r.value = 1;
+			            insertTree(&raiz, r);
 		 			}
 			 	}
-			 	printf("teste");
 			}
 			t=clock() - t;
 
-			printf("teste");
-
+/*
 			t=clock();
 			printf("\nÁrvore AVL ordenada\n");
 		  	printf("{ ");
 		  	central(raiz);
 			printf("}\n\n");
 			t=clock() - t;
-
-			printf("buscas na árvore: 5000");
+*/
+			printf("buscas na árvore: 5.000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_1)) {
 					result = fgets(linha, 50, file_search_1);
-					r.key = atof(result);
-					pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 10000");
+			printf("buscas na árvore: 10.000 entradas\n");
 			t=clock();
 			if(file_search_2 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_2)) {
 					result = fgets(linha, 50, file_search_2);
-					r.key = atof(result);
-					pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 
-			printf("buscas na árvore: 100000");
+			printf("buscas na árvore: 100.000 entradas\n");
 			t=clock();
 			if(file_search_3 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file_search_3)) {
 					result = fgets(linha, 50, file_search_3);
-					r.key = atof(result);
-					pesquisa(&raiz, &aux, r);
 		 			if(result){
-						printf("%s", linha);
+						r.key = atof(linha);
+						pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
@@ -664,19 +850,19 @@ void menu_binaria(){
 }
 
 void preenche() {
-	system("cls || clear");
+	system("clear");
 
-	float arq_1[MIL], arq_2[DEZ_MIL], arq_3[CEM_MIL], array_search_1[5000], array_search_2[10000], array_search_3[100000];
+	float arq_1[MIL], arq_2[DEZ_MIL], arq_3[1000000], array_search_1[5000], array_search_2[10000], array_search_3[100000];
 	char array_1[1000];
 	char array_2[10000];
-	char array_3[100000];
+	char array_3[1000000];
 	char array_search_primeiro[5000];
 	char array_search_segundo[10000];
 	char array_search_terceiro[100000];
 	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
 	file1 = fopen("1000.txt","w");
 	file2 = fopen("10000.txt", "w");
-	file3 = fopen("100000.txt", "w");
+	file3 = fopen("1000000.txt", "w");
 	file_search_1 = fopen("search_5000.txt", "w");
 	file_search_2 = fopen("search_10000.txt", "w");
 	file_search_3 = fopen("search_100000.txt", "w");
@@ -698,8 +884,8 @@ void preenche() {
 	    fputs(array_2, file2);
 	}
 
-	printf("Preenchendo arquivo CEM_MIL...\n");
-	for(int i=0; i<CEM_MIL ; i++){
+	printf("Preenchendo arquivo UM_MILHAO...\n");
+	for(int i=0; i<1000000 ; i++){
 		arq_3[i] = 1 + (float)rand() / (float)RAND_MAX *100000;
 	    sprintf(array_3, "%.6f", arq_3[i]);
 	    strcat(array_3, "\n");

@@ -29,7 +29,7 @@ void insertTree(Tree **t, Record r){
 void pesquisa(Tree **t, Tree **aux, Record r){
 
   if(*t == NULL){
-    printf("[ERROR]: Node not found!");
+    //printf("[ERROR]: Node not found!");
     return;
   }
 
@@ -37,6 +37,7 @@ void pesquisa(Tree **t, Tree **aux, Record r){
   if((*t)->reg.key < r.key){ pesquisa(&(*t)->dir, aux, r); return;}
 
   *aux = *t;
+  printf("encontrou!\n");
 }
 
 
@@ -92,7 +93,7 @@ void removeTree(Tree **t, Record r){
 void preordem(Tree *t)
 {
   if(!(t == NULL)){
-    printf("%d ", t->reg.key);
+    printf("%f ", t->reg.key);
     preordem(t->esq); 
     preordem(t->dir); 
   }
@@ -103,7 +104,7 @@ void central(Tree *t)
 {
   if(!(t == NULL)){
     central(t->esq); 
-    printf("%d ", t->reg.key);
+    printf("%f ", t->reg.key);
     central(t->dir); 
   }
 }
@@ -113,6 +114,6 @@ void posordem(Tree *t)
   if(!(t == NULL)){
     posordem(t->esq); 
     posordem(t->dir); 
-    printf("%d ", t->reg.key);
+    printf("%f ", t->reg.key);
   }
 }

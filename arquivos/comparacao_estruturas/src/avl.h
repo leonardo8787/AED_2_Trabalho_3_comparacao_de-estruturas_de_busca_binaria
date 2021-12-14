@@ -15,11 +15,11 @@ struct Record_avl{
 struct Tree_avl{
 	Record_avl reg;
 	Tree_avl *esq, *dir;
-	float weight;
+	int weight;
 };
 
 Tree_avl* avl_CreateTree();
-void avl_insertTree(Tree_avl **t, Record_avl r);
+void avl_insertTree(Tree_avl **t, Record_avl r, int *cont);
 void avl_pesquisa(Tree_avl **t, Tree_avl **aux, Record_avl r);
 int avl_isInTree(Tree_avl *t, Record_avl r);
 
