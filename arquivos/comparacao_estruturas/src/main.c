@@ -1,7 +1,6 @@
 #include "avl.h"
 #include "rbt.h"
 #include "binaria.h"
-#include "gera_aleatorio.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -66,9 +65,9 @@ void menu_avl(){
 	Tree_avl *raiz = avl_CreateTree();
 	Tree_avl *aux = avl_CreateTree();
 	Record_avl r;
-	float reg1[MIL]={};
-	float reg2[DEZ_MIL]={};
-	float reg3[CEM_MIL]={};
+	float reg1[MIL];
+	float reg2[DEZ_MIL];
+	float reg3[CEM_MIL];
 	clock_t t; //variável para armazenar o tempo
 	int num;
 	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
@@ -336,9 +335,9 @@ void menu_rubro_negro() {
     TNoRB *arvore = NULL;
     clock_t t; //variável para armazenar o tempo
     int opc = -1, flag = 1, n, rn;
-    float reg4[MIL]={};
-    float reg5[DEZ_MIL]={};
-    float reg6[CEM_MIL]={};
+    float reg4[MIL];
+    float reg5[DEZ_MIL];
+    float reg6[CEM_MIL];
     int num;
     //FILE *file;
 	//file = fopen("1000.txt","w");
@@ -452,9 +451,9 @@ void menu_binaria(){
 
 	system("clear || cls");
 
-	float reg7[MIL] = {};
-	float reg8[DEZ_MIL] = {};
-	float reg9[CEM_MIL] = {};
+	float reg7[MIL];
+	float reg8[DEZ_MIL];
+	float reg9[CEM_MIL];
 	Tree *raiz = CreateTree();
 	Tree *aux = CreateTree();
 	Record r;
