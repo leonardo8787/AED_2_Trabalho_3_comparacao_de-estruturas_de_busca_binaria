@@ -8,8 +8,8 @@ typedef struct Record_avl Record_avl;
 typedef struct Tree_avl Tree_avl;
 
 struct Record_avl{
-	int key;
-	int value;
+	float key;
+	float value;
 };
 
 struct Tree_avl{
@@ -19,7 +19,7 @@ struct Tree_avl{
 };
 
 Tree_avl* avl_CreateTree();
-void avl_insertTree(Tree_avl **t, Record_avl r);
+void avl_insertTree(Tree_avl **t, Record_avl r, int *cont);
 void avl_pesquisa(Tree_avl **t, Tree_avl **aux, Record_avl r);
 int avl_isInTree(Tree_avl *t, Record_avl r);
 

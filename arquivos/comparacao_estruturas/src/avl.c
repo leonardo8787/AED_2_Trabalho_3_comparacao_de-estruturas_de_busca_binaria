@@ -4,7 +4,7 @@ Tree_avl* avl_CreateTree(){
   return NULL;
 }
 
-void avl_insertTree(Tree_avl **t, Record_avl r){
+void avl_insertTree(Tree_avl **t, Record_avl r, int *cont){
 
   if(*t == NULL){
     *t = (Tree_avl*)malloc(sizeof(Tree_avl));
@@ -12,11 +12,12 @@ void avl_insertTree(Tree_avl **t, Record_avl r){
     (*t)->dir    = NULL; 
     (*t)->weight = 0;
     (*t)->reg    = r; 
+    (*cont)++;
 
   } else {
-    
+
     if(r.key < (*t)->reg.key){
-      avl_insertTree(&(*t)->esq, r);
+      avl_insertTree(&(*t)->esq, r, cont);
       if ((avl_getWeight(&(*t)->esq) - avl_getWeight(&(*t)->dir)) == 2){
         if(r.key < (*t)->esq->reg.key)
           avl_rotacaoSimplesDireita(t);
@@ -26,7 +27,7 @@ void avl_insertTree(Tree_avl **t, Record_avl r){
     }
     
     if(r.key > (*t)->reg.key){
-      avl_insertTree(&(*t)->dir, r);
+      avl_insertTree(&(*t)->dir, r, cont);
       if ((avl_getWeight(&(*t)->dir) - avl_getWeight(&(*t)->esq)) == 2){
         if(r.key > (*t)->dir->reg.key)
           avl_rotacaoSimplesEsquerda(t);
@@ -45,7 +46,7 @@ void avl_insertTree(Tree_avl **t, Record_avl r){
 void avl_pesquisa(Tree_avl **t, Tree_avl **aux, Record_avl r){
 
   if(*t == NULL){
-    printf("[ERROR]: Node not found!");
+    //printf("não encontrado!\n");
     return;
   }
 
@@ -53,6 +54,7 @@ void avl_pesquisa(Tree_avl **t, Tree_avl **aux, Record_avl r){
   if((*t)->reg.key < r.key){ avl_pesquisa(&(*t)->dir, aux, r); return;}
 
   *aux = *t;
+  printf("encontrou!");
 }
 
 int avl_isInTree(Tree_avl *t, Record_avl r){
@@ -139,7 +141,7 @@ void avl_removeTree(Tree_avl **t, Tree_avl **f, Record_avl r){
 void avl_preordem(Tree_avl *t)
 {
   if(!(t == NULL)){
-    printf("%d\t", t->reg.key);
+    printf("%f\t", t->reg.key);
     avl_preordem(t->esq); 
     avl_preordem(t->dir); 
   }
@@ -150,7 +152,7 @@ void avl_central(Tree_avl *t)
 {
   if(!(t == NULL)){
     avl_central(t->esq); 
-    printf("%d, ", t->reg.key);
+    printf("%f, ", t->reg.key);
     avl_central(t->dir); 
   }
 }
@@ -160,7 +162,7 @@ void avl_posordem(Tree_avl *t)
   if(!(t == NULL)){
     avl_posordem(t->esq); 
     avl_posordem(t->dir); 
-    printf("%d\t", t->reg.key);
+    printf("%f\t", t->reg.key);
   }
 }
 
