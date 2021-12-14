@@ -39,11 +39,20 @@ make
 make run
 ~~~
 
+Ao abrir o software, através do Makefile, clique na opção 4 caso queira gerar novos arquivos. Após, escolha em qual árvore vai analisar!
+
 <h2>Análise dos Algorítmos</h2>
 
 <h1>Árvore Binária</h1>
 
 Gráfico de 1.000 inserções.
+
+~~~~
+Tempo de inserção:  1,768 segundos
+busca 5.000: 7,057 segundos
+busca 10.000: 6,031 segundos
+busca: 100.000: 55,898 segundos
+~~~~
 
 <p>
 	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/binaria_1000.png" width="400" height="300">
@@ -51,11 +60,25 @@ Gráfico de 1.000 inserções.
 
 Gráfico de 10.000 inserções.
 
+~~~~
+Tempo de inserção: 13,203 segundos
+busca 5.000: 3,264 segundos
+busca 10.000: 6,563 segundos
+busca: 100.000: 75,221 segundos
+~~~~
+
 <p>
 	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/binaria_10000.png" width="400" height="300">
 </p>
 
 Gráfico de 1.000.000 inserções.
+
+~~~~
+Tempo de inserção: 1.434,772 segundos
+busca 5.000: 14,799 segundos
+busca 10.000: 21,408 segundos
+busca: 100.000: 202,427 segundos
+~~~~
 
 <p>
 	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/binaria_1000000.png" width="400" height="300">
@@ -65,11 +88,25 @@ Gráfico de 1.000.000 inserções.
 
 Gráfico de 1.000 inserções.
 
+~~~~
+Tempo de inserção:  2,414 segundos
+busca 5.000: 4,441 segundos
+busca 10.000: 7,777 segundos
+busca: 100.000: 47,468 segundos
+~~~~
+
 <p>
 	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/avl_1000%20-%20Copia.png" width="400" height="300">
 </p>
 
 Gráfico de 10.000 inserções.
+
+~~~~
+Tempo de inserção: 15,325 segundos
+busca 5.000: 3,004 segundos
+busca 10.000: 5,802 segundos
+busca: 100.000: 71,969 segundos
+~~~~
 
 <p>
 	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/avl_10000.png" width="400" height="300">
@@ -82,4 +119,4 @@ Gráfico de 10.000 inserções.
 
 
 <h1>Considerações Finais</h1>
-
+	É notório que as inserções nas árvores influênciam no tempo de execução das mesmas, como visto nos gráficos supra-citados. Partindo desse pressuposto, fica nítido ao analisar os gráficos dos respectivos tempos de execução dos softwares de ordenação e busca, que ao aumentar os números de busca ou inserção influênciamos no desempenho. Outrossim, ao analizar cada árvore separadamente é possível notar leves diferenças de desempenho, ao trabalhar com os números de tempo de execução, como por exemplo, a árvore AVL se mostra mais rápida na maioria dos casosdo que a árvore Binária, ainda que essas diferenças sejam muito baixas.
