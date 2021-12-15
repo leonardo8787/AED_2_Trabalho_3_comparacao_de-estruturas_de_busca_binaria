@@ -37,7 +37,7 @@ void pesquisa(Tree **t, Tree **aux, Record r){
   if((*t)->reg.key < r.key){ pesquisa(&(*t)->dir, aux, r); return;}
 
   *aux = *t;
-  printf("encontrou!\n");
+  printf("encontrou: %f \n", r.key);
 }
 
 

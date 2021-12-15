@@ -1,5 +1,5 @@
 #include "avl.h"
-#include "rb.h"
+#include "ArvoreRB.h"
 #include "binaria.h"
 
 #include <stdlib.h>
@@ -238,7 +238,7 @@ void menu_avl(){
 			  printf("Erro ao abrir\n");
 			else {
 				while(!feof(file3)) {
-					result = fgets(linha, 50, file1);
+					result = fgets(linha, 50, file3);
 		 			if(result){
 			            r.key = atof(linha);
 			            r.value = 1;
@@ -312,8 +312,8 @@ void menu_avl(){
 void menu_rubro_negro() {
 
     clock_t t; //variável para armazenar o tempo
-    No* arvore=NULL;
     int num;
+    ArvRB *raiz = cria_ArvoreRB();
 
 	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
 	file1 = fopen("1000.txt","r");
@@ -337,18 +337,19 @@ void menu_rubro_negro() {
         switch(num) {
 			case 1:
 				t=clock();
-				if(file3 == NULL)
+				if(file1 == NULL)
 				  printf("Erro ao abrir\n");
 				else {
-					while(!feof(file3)) {
+					while(!feof(file1)) {
 						result = fgets(linha, 50, file1);
 			 			if(result){
 				            n = atof(linha);
-							inserir(&arvore, n);
+							insere_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
+				emOrdem_ArvRB(raiz, 0);
 /*
 				printf("buscas na árvore: 5.000 entradas\n");
 				t=clock();
@@ -360,7 +361,7 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(&arvore, n);
+							searchRB(n);
 			 			}
 				 	}
 				}
@@ -376,7 +377,7 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(&arvore, n);
+							searchRB(n);
 			 			}
 				 	}
 				}
@@ -392,7 +393,7 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(&arvore, n);
+							searchRB(n);
 			 			}
 				 	}
 				}
@@ -401,18 +402,19 @@ void menu_rubro_negro() {
 
 			case 2:
 				t=clock();
-				if(file3 == NULL)
+				if(file2 == NULL)
 				  printf("Erro ao abrir\n");
 				else {
-					while(!feof(file3)) {
-						result = fgets(linha, 50, file1);
+					while(!feof(file2)) {
+						result = fgets(linha, 50, file2);
 			 			if(result){
 				            n = atof(linha);
-							inserir(&arvore, n);
+							insere_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
+				emOrdem_ArvRB(raiz, 0);
 
 /*
 				printf("buscas na árvore: 5.000 entradas\n");
@@ -425,7 +427,7 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(&arvore, n);
+							searchRB(n);
 			 			}
 				 	}
 				}
@@ -441,7 +443,7 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(&arvore, n);
+							searchRB(n);
 			 			}
 				 	}
 				}
@@ -457,7 +459,7 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(&arvore, n);
+							searchRB(n);
 			 			}
 				 	}
 				}
@@ -471,15 +473,15 @@ void menu_rubro_negro() {
 				  printf("Erro ao abrir\n");
 				else {
 					while(!feof(file3)) {
-						result = fgets(linha, 50, file1);
+						result = fgets(linha, 50, file3);
 			 			if(result){
 				            n = atof(linha);
-							inserir(&arvore, n);
+							insere_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
-
+				emOrdem_ArvRB(raiz, 0);
 /*
 				printf("buscas na árvore: 5.000 entradas\n");
 				t=clock();
@@ -491,7 +493,7 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(&arvore, n);
+							searchRB(n);
 			 			}
 				 	}
 				}
@@ -507,7 +509,7 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(&arvore, n);
+							searchRB(n);
 			 			}
 				 	}
 				}
@@ -523,7 +525,7 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(&arvore, n);
+							searchRB(n);
 			 			}
 				 	}
 				}

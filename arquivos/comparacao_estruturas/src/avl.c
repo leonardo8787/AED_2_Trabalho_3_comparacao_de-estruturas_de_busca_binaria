@@ -1,3 +1,4 @@
+
 #include "avl.h"
 
 Tree_avl* avl_CreateTree(){
@@ -53,7 +54,7 @@ void avl_pesquisa(Tree_avl **t, Tree_avl **aux, Record_avl r){
   if((*t)->reg.key < r.key){ avl_pesquisa(&(*t)->dir, aux, r); return;}
 
   *aux = *t;
-  printf("encontrou!");
+  printf("encontrou: %f \n", r.key);
 }
 
 int avl_isInTree(Tree_avl *t, Record_avl r){
