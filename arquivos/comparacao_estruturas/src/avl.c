@@ -4,7 +4,7 @@ Tree_avl* avl_CreateTree(){
   return NULL;
 }
 
-void avl_insertTree(Tree_avl **t, Record_avl r, int *cont){
+void avl_insertTree(Tree_avl **t, Record_avl r){
 
   if(*t == NULL){
     *t = (Tree_avl*)malloc(sizeof(Tree_avl));
@@ -12,12 +12,11 @@ void avl_insertTree(Tree_avl **t, Record_avl r, int *cont){
     (*t)->dir    = NULL; 
     (*t)->weight = 0;
     (*t)->reg    = r; 
-    (*cont)++;
 
   } else {
 
     if(r.key < (*t)->reg.key){
-      avl_insertTree(&(*t)->esq, r, cont);
+      avl_insertTree(&(*t)->esq, r);
       if ((avl_getWeight(&(*t)->esq) - avl_getWeight(&(*t)->dir)) == 2){
         if(r.key < (*t)->esq->reg.key)
           avl_rotacaoSimplesDireita(t);
@@ -27,7 +26,7 @@ void avl_insertTree(Tree_avl **t, Record_avl r, int *cont){
     }
     
     if(r.key > (*t)->reg.key){
-      avl_insertTree(&(*t)->dir, r, cont);
+      avl_insertTree(&(*t)->dir, r);
       if ((avl_getWeight(&(*t)->dir) - avl_getWeight(&(*t)->esq)) == 2){
         if(r.key > (*t)->dir->reg.key)
           avl_rotacaoSimplesEsquerda(t);

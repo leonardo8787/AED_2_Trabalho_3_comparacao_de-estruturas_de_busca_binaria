@@ -1,10 +1,6 @@
 #include "avl.h"
-//#include "rbt.h"
+#include "rb.h"
 #include "binaria.h"
-<<<<<<< HEAD
-=======
-//#include "treeRB.h"
->>>>>>> 2ca098ed817615b873a4922cfa32ecdbdca16292
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -75,15 +71,8 @@ void menu_avl(){
 	Tree_avl *raiz = avl_CreateTree();
 	Tree_avl *aux = avl_CreateTree();
 	Record_avl r;
-<<<<<<< HEAD
-	float reg1[MIL];
-	float reg2[DEZ_MIL];
-	float reg3[CEM_MIL];
-=======
->>>>>>> 2ca098ed817615b873a4922cfa32ecdbdca16292
 	clock_t t; //variável para armazenar o tempo
 	int num;
-	int cont = 0;
 
 	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
 	file1 = fopen("1000.txt","r");
@@ -117,22 +106,13 @@ void menu_avl(){
 		 			if(result){
 			            r.key = atof(linha);
 			            r.value = 1;
-						//printf("%s", linha);
-						avl_insertTree(&raiz, r, &cont);
+						avl_insertTree(&raiz, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			printf("contador de 1000 : %d\n", cont);
-// /*
-// 			t=clock();
-// 			printf("\nÁrvore AVL ordenada\n");
-// 		  	printf("{ ");
-// 		  	avl_central(raiz);
-// 			printf("}\n\n");
-// 			t=clock() - t;
-// */
+
 			printf("buscas na árvore: 5000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
@@ -142,7 +122,6 @@ void menu_avl(){
 					result = fgets(linha, 50, file_search_1);
 		 			if(result){
 						r.key = atof(linha);
-						//printf("%s", linha);
 						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
@@ -159,7 +138,6 @@ void menu_avl(){
 					result = fgets(linha, 50, file_search_2);
 		 			if(result){
 		 				r.key = atof(result);
-						//printf("%s", linha);
 						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
@@ -175,7 +153,6 @@ void menu_avl(){
 				while(!feof(file_search_3)) {
 					result = fgets(linha, 50, file_search_3);
 		 			if(result){
-						//printf("%s", linha);
 						r.key = atof(result);
 						avl_pesquisa(&raiz, &aux, r);
 		 			}
@@ -197,22 +174,12 @@ void menu_avl(){
 		 			if(result){
 			            r.key = atof(linha);
 			            r.value = 1;
-						//printf("%s", linha);
-						avl_insertTree(&raiz, r, &cont);
+						avl_insertTree(&raiz, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			printf("contador de 10000 : %d\n", cont);
-/*
-			t=clock();
-			printf("\nÁrvore AVL ordenada\n");
-		  	printf("{ ");
-		  	avl_central(raiz);
-			printf("}\n\n");
-			t=clock() - t;
-*/
 
 			printf("buscas na árvore: 5000 entradas\n");
 			t=clock();
@@ -222,7 +189,6 @@ void menu_avl(){
 				while(!feof(file_search_1)) {
 					result = fgets(linha, 50, file_search_1);
 		 			if(result){
-						//printf("%s", linha);
 						r.key = atof(linha);
 						avl_pesquisa(&raiz, &aux, r);
 		 			}
@@ -239,7 +205,6 @@ void menu_avl(){
 				while(!feof(file_search_2)) {
 					result = fgets(linha, 50, file_search_2);
 		 			if(result){
-						//printf("%s", linha);
 						r.key = atof(linha);
 						avl_pesquisa(&raiz, &aux, r);
 		 			}
@@ -256,7 +221,6 @@ void menu_avl(){
 				while(!feof(file_search_3)) {
 					result = fgets(linha, 50, file_search_3);
 		 			if(result){
-						//printf("%s", linha);
 						r.key = atof(linha);
 						avl_pesquisa(&raiz, &aux, r);
 		 			}
@@ -278,22 +242,12 @@ void menu_avl(){
 		 			if(result){
 			            r.key = atof(linha);
 			            r.value = 1;
-						//printf("%s", linha);
-						avl_insertTree(&raiz, r, &cont);
+						avl_insertTree(&raiz, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
 			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			printf("contador de 1.000.000 : %d\n", cont);
-/*
-			t=clock();
-			printf("\nÁrvore AVL ordenada\n");
-		  	printf("{ ");
-		  	avl_central(raiz);
-			printf("}\n\n");
-			t=clock() - t;
-*/
 
 			printf("buscas na árvore: 5.000 entradas\n");
 			t=clock();
@@ -302,9 +256,7 @@ void menu_avl(){
 			else {
 				while(!feof(file_search_1)) {
 					result = fgets(linha, 50, file_search_1);
-
 		 			if(result){
-						//printf("%s", linha);
 						r.key = atof(linha);
 						avl_pesquisa(&raiz, &aux, r);
 		 			}
@@ -321,7 +273,6 @@ void menu_avl(){
 				while(!feof(file_search_2)) {
 					result = fgets(linha, 50, file_search_2);
 		 			if(result){
-						//printf("%s", linha);
 						r.key = atof(linha);
 						avl_pesquisa(&raiz, &aux, r);
 		 			}
@@ -337,16 +288,14 @@ void menu_avl(){
 			else {
 				while(!feof(file_search_3)) {
 					result = fgets(linha, 50, file_search_3);
-
 		 			if(result){
-						//printf("%s", linha);
 						r.key = atof(linha);
 						avl_pesquisa(&raiz, &aux, r);
 		 			}
 			 	}
 			}
 			t=clock() - t;
-			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+			printf("Tempo de execucao: %lf", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 			break;
 		default:
@@ -362,9 +311,8 @@ void menu_avl(){
 
 void menu_rubro_negro() {
 
-    // TNoRB *arvore = NULL;
-    // clock_t t; //variável para armazenar o tempo
-    // int opc = -1, flag = 1, n, rn;
+    clock_t t; //variável para armazenar o tempo
+    No* arvore=NULL;
     int num;
 
 	FILE *file1, *file2, *file3, *file_search_1, *file_search_2, *file_search_3;
@@ -377,8 +325,8 @@ void menu_rubro_negro() {
 
 	char *result; 
 	char linha[50];
+	int n;
 
-    
 		printf("\nMENU_RED_BLACK\n\n");
 		printf("Escolha qual inserção irá medir primeiro:\n");
 		printf("1 - 1000 entradas\n");
@@ -387,7 +335,7 @@ void menu_rubro_negro() {
 		scanf("%d",&num);
 
         switch(num) {
-			case 1:/*
+			case 1:
 				t=clock();
 				if(file3 == NULL)
 				  printf("Erro ao abrir\n");
@@ -396,13 +344,12 @@ void menu_rubro_negro() {
 						result = fgets(linha, 50, file1);
 			 			if(result){
 				            n = atof(linha);
-							//printf("%s", linha);
-							insereNo(&arvore, NULL, &arvore, n);
+							inserir(&arvore, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
-
+/*
 				printf("buscas na árvore: 5.000 entradas\n");
 				t=clock();
 				if(file_search_1 == NULL)
@@ -452,7 +399,7 @@ void menu_rubro_negro() {
 				t=clock() - t;*/
 				break;
 
-			case 2:/*
+			case 2:
 				t=clock();
 				if(file3 == NULL)
 				  printf("Erro ao abrir\n");
@@ -461,21 +408,13 @@ void menu_rubro_negro() {
 						result = fgets(linha, 50, file1);
 			 			if(result){
 				            n = atof(linha);
-							//printf("%s", linha);
-							insereNo(&arvore, NULL, &arvore, n);
+							inserir(&arvore, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
 
-				t=clock();
-				printf("\nÁrvore AVL ordenada\n");
-			  	printf("{ ");
-			  	avl_central(raiz);
-				printf("}\n\n");
-				t=clock() - t;
-
-
+/*
 				printf("buscas na árvore: 5.000 entradas\n");
 				t=clock();
 				if(file_search_1 == NULL)
@@ -526,7 +465,7 @@ void menu_rubro_negro() {
 				break;
 
 
-			case 3:/*
+			case 3:
 				t=clock();
 				if(file3 == NULL)
 				  printf("Erro ao abrir\n");
@@ -535,21 +474,13 @@ void menu_rubro_negro() {
 						result = fgets(linha, 50, file1);
 			 			if(result){
 				            n = atof(linha);
-							//printf("%s", linha);
-							insereNo(&arvore, NULL, &arvore, n);
+							inserir(&arvore, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
 
-				t=clock();
-				printf("\nÁrvore AVL ordenada\n");
-			  	printf("{ ");
-			  	avl_central(raiz);
-				printf("}\n\n");
-				t=clock() - t;
-
-
+/*
 				printf("buscas na árvore: 5.000 entradas\n");
 				t=clock();
 				if(file_search_1 == NULL)
@@ -601,7 +532,6 @@ void menu_rubro_negro() {
 
             default:
                 printf("Opção inválida.\n");
-                break;
         }
 	fclose(file1);
 	fclose(file2);
@@ -661,14 +591,6 @@ void menu_binaria(){
 			t=clock() - t;
 			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
-/*
-			t=clock();
-			printf("\nÁrvore AVL ordenada\n");
-		  	printf("{ ");
-		  	central(raiz);
-			printf("}\n\n");
-			t=clock() - t;
-*/
 			printf("buscas na árvore: 5.000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
@@ -737,14 +659,6 @@ void menu_binaria(){
 			t=clock() - t;
 			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
-/*
-			t=clock();
-			printf("\nÁrvore AVL ordenada\n");
-		  	printf("{ ");
-		  	central(raiz);
-			printf("}\n\n");
-			t=clock() - t;
-*/
 			printf("buscas na árvore: 5.000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
@@ -813,14 +727,6 @@ void menu_binaria(){
 			t=clock() - t;
 			printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
-/*
-			t=clock();
-			printf("\nÁrvore AVL ordenada\n");
-		  	printf("{ ");
-		  	central(raiz);
-			printf("}\n\n");
-			t=clock() - t;
-*/
 			printf("buscas na árvore: 5.000 entradas\n");
 			t=clock();
 			if(file_search_1 == NULL)
@@ -883,26 +789,8 @@ void menu_binaria(){
 	fclose(file_search_3);
 }
 
-<<<<<<< HEAD
-void menu_rubro_negro() {
-    TNoRB *arvore = NULL;
-    clock_t t; //variável para armazenar o tempo
-    int opc = -1, flag = 1, n, rn;
-    float reg4[MIL];
-    float reg5[DEZ_MIL];
-    float reg6[CEM_MIL];
-    int num;
-    //FILE *file;
-	//file = fopen("1000.txt","w");
-	//file = fopen("10000.txt", "w");
-	//file = fopen("100000.txt", "w");
-	char array4[1000];
-	char array5[10000];
-	char array6[100000];
-=======
 void preenche() {
 	system("clear");
->>>>>>> 2ca098ed817615b873a4922cfa32ecdbdca16292
 
 	float arq_1[MIL], arq_2[DEZ_MIL], arq_3[1000000], array_search_1[5000], array_search_2[10000], array_search_3[100000];
 	char array_1[1000];
@@ -920,168 +808,12 @@ void preenche() {
 	file_search_3 = fopen("search_100000.txt", "w");
 
 
-<<<<<<< HEAD
-			case 3:
-				arvore = NULL;
-				t=clock();
-				printf("\nPreenchendo matriz...\n");
-				for(int i=0; i<CEM_MIL ; i++){
-					reg4[i] = rand() % CEM_MIL;
-				}
-				t=clock() - t;
-			    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-
-				printf("ELEMENTOS DA ARVORE: { ");
-			  	for(int i=0; i<CEM_MIL; i++){
-					//r.key = reg5[i];
-					//r.value = 1;
-					insereNo(&arvore, NULL, &arvore, n);
-			    printf("%f ", reg4[i]);
-				}
-			  	printf("}\n\n");
-
-				t=clock();
-			  	printf("METODO CENTRAL: { ");
-			  	inOrder(arvore);
-				printf("}\n\n");
-				t=clock() - t;
-			    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-				break;
-
-            default:
-                printf("Opção inválida.\n");
-                break;
-        }
-    //fclose(file);
-}
-
-void menu_binaria(){
-
-	system("clear || cls");
-
-	float reg7[MIL];
-	float reg8[DEZ_MIL];
-	float reg9[CEM_MIL];
-	Tree *raiz = CreateTree();
-	Tree *aux = CreateTree();
-	Record r;
-	clock_t t; //variável para armazenar o tempo
-	int esc;
-	//FILE *file;
-	//file = fopen("1000.txt","w");
-	//file = fopen("10000.txt", "w");
-	//file = fopen("100000.txt", "w");
-	char array7[1000];
-	char array8[10000];
-	char array9[100000];
-
-
-	printf("\nMENU_Binária\n\n");
-	printf("Escolha qual inserção irá medir primeiro:\n");
-	printf("1 - 1000 entradas\n");
-	printf("2 - 10.000 entradas\n");
-	printf("3 - 100.000 entradas\n");
-	scanf("%d",&esc);
-
-	switch(esc) {
-		case 1:
-			raiz = CreateTree();
-			t=clock();
-			printf("\nPreenchendo matriz...\n");
-			for(int i=0; i<MIL ; i++){
-				reg7[i] = rand() % MIL;
-			}
-			t=clock() - t;
-		    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-
-			printf("ELEMENTOS DA ARVORE: { ");
-		  	for(int i=0; i<MIL; i++){
-				r.key = reg7[i];
-				r.value = 1;
-				insertTree(&raiz, r);
-	            //sprintf(array7, "%.6f", reg7[i]);
-	            //strcat(array7, "\n");
-	            //fputs(array7, file);
-		    	printf("%f ", reg7[i]);
-			}
-		  	printf("}\n\n");
-
-			t=clock();
-		  	printf("METODO CENTRAL: { ");
-		  	central(raiz);
-			printf("}\n\n");
-			t=clock() - t;
-		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			break;
-		case 2:
-			raiz = CreateTree();
-			t=clock();
-			printf("\nPreenchendo matriz...\n");
-			for(int i=0; i<DEZ_MIL ; i++){
-				reg8[i]= rand() % DEZ_MIL;
-			}
-			t=clock() - t;
-		    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-
-			printf("ELEMENTOS DA ARVORE: { ");
-		  	for(int i=0; i<DEZ_MIL; i++){
-				r.key = reg8[i];
-				r.value = 1;
-				insertTree(&raiz, r);
-	            //sprintf(array8, "%.6f", reg8[i]);
-	            //strcat(array8, "\n");
-	            //fputs(array8, file);
-		    	printf("%f ", reg8[i]);
-			}
-		  	printf("}\n\n");
-
-			t=clock();
-		  	printf("METODO CENTRAL: { ");
-		  	central(raiz);
-			printf("}\n\n");
-			t=clock() - t;
-		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			break;
-		case 3:
-			raiz = CreateTree();
-			t=clock();
-			printf("\nPreenchendo matriz...\n");
-			for(int i=0; i<CEM_MIL ; i++){
-				reg9[i]= rand() % CEM_MIL;
-			}
-			t=clock() - t;
-		    printf("Tempo de execucao de inserção: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-
-			printf("ELEMENTOS DA ARVORE: { ");
-		  	for(int i=0; i<CEM_MIL; i++){
-				r.key = reg9[i];
-				r.value = 1;
-				insertTree(&raiz, r);
-	            //sprintf(array9, "%.6f", reg9[i]);
-	            //strcat(array9, "\n");
-	            //fputs(array9, file);
-		    	printf("%f ", reg9[i]);
-			}
-		  	printf("}\n\n");
-
-			t=clock();
-		  	printf("METODO CENTRAL: { ");
-		  	central(raiz);
-			printf("}\n\n");
-			t=clock() - t;
-		    printf("Tempo de execucao de busca: %lf segundos!\n\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
-			break;
-		default:
-			printf("Escolha uma opção válida!");
-			break;
-=======
 	printf("\nPreenchendo arquivo MIL...\n");
 	for(int i=0; i<MIL ; i++){
 		arq_1[i] = 1 + (float)rand() / (float)RAND_MAX *100000;
 	    sprintf(array_1, "%.6f", arq_1[i]);
 	    strcat(array_1, "\n");
 	    fputs(array_1, file1);
->>>>>>> 2ca098ed817615b873a4922cfa32ecdbdca16292
 	}
 
 	printf("Preenchendo arquivo DEZ_MIL...\n");
