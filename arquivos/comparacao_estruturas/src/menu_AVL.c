@@ -37,7 +37,6 @@ void menu_avl(){
 			if(file1 == NULL)
 			  printf("Erro ao abrir\n");
 			else {
-				printf("teste2\n");
 				while(!feof(file1)) {
 					result = fgets(linha, 50, file1);
 		 			if(result){

@@ -17,7 +17,7 @@ void menu_rubro_negro() {
 
 	char *result; 
 	char linha[50];
-	int n;
+	float n;
 
 		printf("\nMENU_RED_BLACK\n\n");
 		printf("Escolha qual inserção irá medir primeiro:\n");
@@ -41,8 +41,9 @@ void menu_rubro_negro() {
 				 	}
 				}
 				t=clock() - t;
-				emOrdem_ArvRB(raiz, 0);
-/*
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+				//emOrdem_ArvRB(raiz, 0);
+
 				printf("buscas na árvore: 5.000 entradas\n");
 				t=clock();
 				if(file_search_1 == NULL)
@@ -53,11 +54,12 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(n);
+							consulta_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 				printf("buscas na árvore: 10.000 entradas \n");
 				t=clock();
@@ -69,11 +71,12 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(n);
+							consulta_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 				printf("buscas na árvore: 100.000 entradas\n");
 				t=clock();
@@ -85,11 +88,12 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(n);
+							consulta_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
-				t=clock() - t;*/
+				t=clock() - t;
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 				break;
 
 			case 2:
@@ -106,9 +110,9 @@ void menu_rubro_negro() {
 				 	}
 				}
 				t=clock() - t;
-				emOrdem_ArvRB(raiz, 0);
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+				//emOrdem_ArvRB(raiz, 0);
 
-/*
 				printf("buscas na árvore: 5.000 entradas\n");
 				t=clock();
 				if(file_search_1 == NULL)
@@ -119,11 +123,12 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(n);
+							consulta_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 				printf("buscas na árvore: 10.000 entradas \n");
 				t=clock();
@@ -135,11 +140,12 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(n);
+							consulta_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 				printf("buscas na árvore: 100.000 entradas\n");
 				t=clock();
@@ -151,11 +157,12 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(n);
+							consulta_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
-				t=clock() - t;*/
+				t=clock() - t;
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 				break;
 
 
@@ -173,8 +180,9 @@ void menu_rubro_negro() {
 				 	}
 				}
 				t=clock() - t;
-				emOrdem_ArvRB(raiz, 0);
-/*
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+				//emOrdem_ArvRB(raiz, 0);
+
 				printf("buscas na árvore: 5.000 entradas\n");
 				t=clock();
 				if(file_search_1 == NULL)
@@ -185,11 +193,12 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(n);
+							consulta_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 				printf("buscas na árvore: 10.000 entradas \n");
 				t=clock();
@@ -201,11 +210,12 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(n);
+							consulta_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
 				t=clock() - t;
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 
 				printf("buscas na árvore: 100.000 entradas\n");
 				t=clock();
@@ -217,11 +227,12 @@ void menu_rubro_negro() {
 			 			if(result){
 							//printf("%s", linha);
 							n = atof(linha);
-							searchRB(n);
+							consulta_ArvRB(raiz, n);
 			 			}
 				 	}
 				}
-				t=clock() - t;*/
+				t=clock() - t;
+				printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
 				break;
 
             default:

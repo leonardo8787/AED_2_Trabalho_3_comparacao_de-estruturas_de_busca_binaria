@@ -43,6 +43,7 @@ float consulta_ArvRB(ArvRB *raiz, float valor){
     struct NO* atual = *raiz;
     while(atual != NULL){
         if(valor == atual->info){
+            printf("retornou: %f\n", valor);
             return 1;
         }
         if(valor > atual->info)
