@@ -172,8 +172,8 @@ busca: 100.000: 194,391 segundos
 <h1>Considerações Finais</h1>
 	É notório que as inserções nas árvores influênciam no tempo de execução das mesmas, como visto nos gráficos supra-citados. Partindo desse pressuposto, fica nítido ao analisar os gráficos dos respectivos tempos de execução dos softwares de ordenação e busca, que ao aumentar os números de busca ou inserção influênciamos no desempenho. Outrossim, ao analizar cada árvore separadamente é possível notar leves diferenças de desempenho, ao trabalhar com os números de tempo de execução, como por exemplo, a árvore AVL se mostra mais rápida com poucas entradas e se mostra pior com grandes entradas.
 	
---> Qual das estruturas é mais rápida para pesquisa e porquê? A estrutura mais rápida analisada neste software foi a AVL!
+--> Qual das estruturas é mais rápida para pesquisa e porquê? A estrutura mais rápida analisada neste software foi a Rubro Negra, visto que o tempo de execução foi menor!
 
 --> Há diferença de tempo das inserções, o que afeta cada estrutura em termos de mecanismo de manipulação / balanceamento?  Essa diferença se dá em função da manipulação de folhas que há nas árvores AVL e Rubro Negra, o quê não está presente na árvore binária, que tem um mecanismo mais simples. Inclusive é possível notar essa diferença nos tempos de execução supra-citados!
 
---> Considerando as três bases de entrada, para quais você indica cada uma das estruturas e porquê? para 1.000 inserções, indico a Rubro Negra. Para 10.000 inserções, recomendo a Binária. Para 1.000.000 de inserções, recomendo a binária também!
+--> Considerando as três bases de entrada, para quais você indica cada uma das estruturas e porquê? para 1.000 inserções, indico a binária. Para 10.000 inserções, recomendo a Binária. Para 1.000.000 de inserções, recomendo a binária também! A árvore binária se mostra mais dinâmica do que as outras pelo fato de ter uma estrutura mais simples, assim é mais rápido inserir elementos na árvore. Nas outras árvores começam a interarir com balanceamento e rotação o quê deixa o processo de inserção mais lento!
