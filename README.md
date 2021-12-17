@@ -129,13 +129,45 @@ busca: 100.000: 258,755 segundos
 
 <h1>Árvore Rubro-Negra</h1>
 
-~~~~
-1.000 inserções: 1,195 segundos
+Gráfico de 1.000 inserções.
 
-10.000 inserções: 15,269 segundos
-
-1.000.000 inserções: 1.720,101 segundos
 ~~~~
+Tempo de inserção:  2,099 segundos
+busca 5.000: 5,213 segundos
+busca 10.000: 6,024 segundos
+busca: 100.000: 51,800 segundos
+~~~~
+
+<p>
+	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/Rubro%20Negra%201.000.png" width="400" height="300">
+</p>
+
+Gráfico de 10.000 inserções.
+
+~~~~
+Tempo de inserção: 14,302 segundos
+busca 5.000: 4,091 segundos
+busca 10.000: 6,354 segundos
+busca: 100.000: 64,721 segundos
+~~~~
+
+<p>
+	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/Rubro%20Negra%2010.000.png" width="400" height="300">
+</p>
+
+
+Gráfico de 1.000.000 inserções.
+
+~~~~
+Tempo de inserção: 2.373,385 segundos
+busca 5.000: 10,344 segundos
+busca 10.000: 22,235 segundos
+busca: 100.000: 194,391 segundos
+~~~~
+
+<p>
+	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/Rubro%20Negra%201.000.000.png" width="400" height="300">
+</p>
 
 <h1>Considerações Finais</h1>
 	É notório que as inserções nas árvores influênciam no tempo de execução das mesmas, como visto nos gráficos supra-citados. Partindo desse pressuposto, fica nítido ao analisar os gráficos dos respectivos tempos de execução dos softwares de ordenação e busca, que ao aumentar os números de busca ou inserção influênciamos no desempenho. Outrossim, ao analizar cada árvore separadamente é possível notar leves diferenças de desempenho, ao trabalhar com os números de tempo de execução, como por exemplo, a árvore AVL se mostra mais rápida com poucas entradas e se mostra pior com grandes entradas.
