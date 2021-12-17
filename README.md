@@ -113,10 +113,35 @@ busca: 100.000: 71,969 segundos
 </p>
 
 
+Gráfico de 1.000.000 inserções.
+
+~~~~
+Tempo de inserção: 2.992,989 segundos
+busca 5.000: 15,720 segundos
+busca 10.000: 34,456 segundos
+busca: 100.000: 258,755 segundos
+~~~~
+
+<p>
+	<img src="https://github.com/leonardo8787/AED_2_Trabalho_3_comparacao_de-estruturas_de_busca_binaria/blob/main/imagens/avl_1000000.png" width="400" height="300">
+</p>
+
 
 <h1>Árvore Rubro-Negra</h1>
 
+~~~~
+1.000 inserções: 1,195 segundos
 
+10.000 inserções: 15,269 segundos
+
+1.000.000 inserções: 1.720,101 segundos
+~~~~
 
 <h1>Considerações Finais</h1>
-	É notório que as inserções nas árvores influênciam no tempo de execução das mesmas, como visto nos gráficos supra-citados. Partindo desse pressuposto, fica nítido ao analisar os gráficos dos respectivos tempos de execução dos softwares de ordenação e busca, que ao aumentar os números de busca ou inserção influênciamos no desempenho. Outrossim, ao analizar cada árvore separadamente é possível notar leves diferenças de desempenho, ao trabalhar com os números de tempo de execução, como por exemplo, a árvore AVL se mostra mais rápida na maioria dos casosdo que a árvore Binária, ainda que essas diferenças sejam muito baixas.
+	É notório que as inserções nas árvores influênciam no tempo de execução das mesmas, como visto nos gráficos supra-citados. Partindo desse pressuposto, fica nítido ao analisar os gráficos dos respectivos tempos de execução dos softwares de ordenação e busca, que ao aumentar os números de busca ou inserção influênciamos no desempenho. Outrossim, ao analizar cada árvore separadamente é possível notar leves diferenças de desempenho, ao trabalhar com os números de tempo de execução, como por exemplo, a árvore AVL se mostra mais rápida com poucas entradas e se mostra pior com grandes entradas.
+	
+--> Qual das estruturas é mais rápida para pesquisa e porquê? A estrutura mais rápida analisada neste software foi a AVL!
+
+--> Há diferença de tempo das inserções, o que afeta cada estrutura em termos de mecanismo de manipulação / balanceamento?  Essa diferença se dá em função da manipulação de folhas que há nas árvores AVL e Rubro Negra, o quê não está presente na árvore binária, que tem um mecanismo mais simples. Inclusive é possível notar essa diferença nos tempos de execução supra-citados!
+
+--> Considerando as três bases de entrada, para quais você indica cada uma das estruturas e porquê? para 1.000 inserções, indico a Rubro Negra. Para 10.000 inserções, recomendo a Binária. Para 1.000.000 de inserções, recomendo a binária também!
